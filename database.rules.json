@@ -1,0 +1,41 @@
+{
+  "rules": {
+    "profiles": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid"
+      }
+    },
+    "contacts": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid"
+      }
+    },
+    "chats": {
+      ".read": "auth !== null",
+      ".write": "auth !== null",
+      "$chat_id": {
+        ".read": "auth !== null",
+        ".write": "auth !== null"
+      }
+    },
+    "messages": {
+      ".read": "auth !== null",
+      ".write": "auth !== null",
+      "$message_id": {
+        ".read": "auth !== null",
+        ".write": "auth !== null"
+      },
+      ".indexOn": "chatId"
+    },
+    "status": {
+      "$user_id": {
+        ".read": "auth !== null",
+        ".write": "$user_id === auth.uid"
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+}
